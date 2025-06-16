@@ -1,4 +1,4 @@
-package cgo
+package main
 
 import (
 	"github.com/ebitengine/purego"

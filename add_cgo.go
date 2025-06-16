@@ -1,4 +1,4 @@
-package cgo
+package main
 
 /*
 #include <./c/add.c>

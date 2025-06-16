@@ -1,4 +1,4 @@
-package cgo
+package main
 
 import "testing"
 
@@ -22,7 +22,7 @@ func TestPurego(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	result := puregoAdd(15, 20)
+	result := addPurego(15, 20)
 	if result != 35 {
 		t.Fatal("incorrect result: ", result)
 	}
