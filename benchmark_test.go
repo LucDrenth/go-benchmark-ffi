@@ -14,18 +14,26 @@ func BenchmarkCGO(b *testing.B) {
 }
 
 func BenchmarkPurego(b *testing.B) {
-	err := loadPurego()
+	err := loadPuregoAdd()
 	if err != nil {
 		b.Fatalf("failed to load purego: %v", err)
 	}
 
-	for b.Loop() {
-		addPurego(15, 20)
-	}
+	b.Run("registered func", func(b *testing.B) {
+		for b.Loop() {
+			addPuregoRegisteredFunc(15, 20)
+		}
+	})
+
+	b.Run("sys call", func(b *testing.B) {
+		for b.Loop() {
+			addPuregoSysCall(15, 20)
+		}
+	})
 }
 
 func BenchmarkPuregoLoad(b *testing.B) {
 	for b.Loop() {
-		loadPurego()
+		loadPuregoAdd()
 	}
 }

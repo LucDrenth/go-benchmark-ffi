@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestGo(t *testing.T) {
 	result := addGo(15, 20)
@@ -17,13 +19,22 @@ func TestCGO(t *testing.T) {
 }
 
 func TestPurego(t *testing.T) {
-	err := loadPurego()
+	err := loadPuregoAdd()
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	result := addPurego(15, 20)
-	if result != 35 {
-		t.Fatal("incorrect result: ", result)
-	}
+	t.Run("registered func", func(t *testing.T) {
+		result := addPuregoRegisteredFunc(15, 20)
+		if result != 35 {
+			t.Fatal("incorrect result: ", result)
+		}
+	})
+
+	t.Run("sys call", func(t *testing.T) {
+		result := addPuregoSysCall(15, 20)
+		if result != 35 {
+			t.Fatal("incorrect result: ", result)
+		}
+	})
 }

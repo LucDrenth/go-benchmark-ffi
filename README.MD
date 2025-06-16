@@ -12,8 +12,9 @@ goos: darwin
 goarch: arm64
 pkg: github.com/LucDrenth/go-benchmark-ffi
 cpu: Apple M2 Pro
-BenchmarkGo-12                  559262828                1.943 ns/op
-BenchmarkCGO-12                  40146758                29.46 ns/op
-BenchmarkPurego-12                4470415                265.8 ns/op
-BenchmarkPuregoLoad-12              52886                22840 ns/op
+BenchmarkGo-12                                  586882443               1.931 ns/op
+BenchmarkCGO-12                                  41127932               29.52 ns/op
+BenchmarkPurego/registered_func-12                4373442               261.9 ns/op
+BenchmarkPurego/sys_call-12                      13341868               89.52 ns/op
+BenchmarkPuregoLoad-12                              56335               20762 ns/op
 ```
