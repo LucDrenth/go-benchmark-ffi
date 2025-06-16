@@ -2,15 +2,15 @@ package main
 
 import "testing"
 
-func TestCGO(t *testing.T) {
-	result := addCgo(15, 20)
+func TestGo(t *testing.T) {
+	result := addGo(15, 20)
 	if result != 35 {
 		t.Fatal("incorrect result: ", result)
 	}
 }
 
-func TestGo(t *testing.T) {
-	result := addGo(15, 20)
+func TestCGO(t *testing.T) {
+	result := addCgo(15, 20)
 	if result != 35 {
 		t.Fatal("incorrect result: ", result)
 	}
