@@ -1,5 +1,5 @@
 compile-c: 
-	cc -shared -o ./c/libadd.dylib -fPIC ./c/add.c
+	cc -shared -o ./simple_addition/c/libadd.dylib -fPIC ./simple_addition/c/add.c
 
 test:
 	go test ./...

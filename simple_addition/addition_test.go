@@ -11,7 +11,7 @@ func TestGo(t *testing.T) {
 	}
 }
 
-func TestCGO(t *testing.T) {
+func TestCgo(t *testing.T) {
 	result := addCgo(15, 20)
 	if result != 35 {
 		t.Fatal("incorrect result: ", result)

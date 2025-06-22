@@ -2,18 +2,19 @@ package main
 
 import "testing"
 
-func BenchmarkGo(b *testing.B) {
+func BenchmarkAdditionGo(b *testing.B) {
 	for b.Loop() {
 		addGo(15, 20)
 	}
 }
-func BenchmarkCGO(b *testing.B) {
+
+func BenchmarkAdditionCgo(b *testing.B) {
 	for b.Loop() {
 		addCgo(15, 20)
 	}
 }
 
-func BenchmarkPurego(b *testing.B) {
+func BenchmarkAdditionPurego(b *testing.B) {
 	err := loadPuregoAdd()
 	if err != nil {
 		b.Fatalf("failed to load purego: %v", err)
@@ -32,7 +33,7 @@ func BenchmarkPurego(b *testing.B) {
 	})
 }
 
-func BenchmarkPuregoLoad(b *testing.B) {
+func BenchmarkAdditionPuregoLoad(b *testing.B) {
 	for b.Loop() {
 		loadPuregoAdd()
 	}
