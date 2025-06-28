@@ -6,6 +6,11 @@ var mtlCreateSystemDefaultDevice func() uintptr
 var mtlCreateSystemDefaultDeviceSymbol uintptr
 
 func loadPuregoMTLCreateSystemDefaultDeviceSymbol() error {
+	_, err := purego.Dlopen("/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics", purego.RTLD_LAZY|purego.RTLD_GLOBAL)
+	if err != nil {
+		return err
+	}
+
 	metalFramework, err := purego.Dlopen("/System/Library/Frameworks/Metal.framework/Metal", purego.RTLD_LAZY|purego.RTLD_GLOBAL)
 	if err != nil {
 		return err
